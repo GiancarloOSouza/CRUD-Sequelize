@@ -3,7 +3,7 @@ const database = require('../models')
 class VeiculoController {
     static async pegartodasOsVeiculos(req, res) {
         try {
-            const todasOsVeiculos = await database.Veiculo.findAll()
+            const todasOsVeiculos = await database.Veiculos.findAll()
             return res.status(200).json(todasOsVeiculos)
         } catch (error) {
             return res.status(500).json(error.message)
@@ -13,7 +13,7 @@ class VeiculoController {
     static async pegaUmVeiculo(req, res) {
         const { id } = req.params
         try {
-            const umVeiculo = await database.Veiculo.findOne({
+            const umVeiculo = await database.Veiculos.findOne({
                 where:{
                     id: Number(id)
                 }
@@ -28,7 +28,7 @@ class VeiculoController {
         const novoVeiculo = req.body
         
         try {
-            const novoVeiculoCria = await database.Veiculo.create(novoVeiculo)
+            const novoVeiculoCria = await database.Veiculos.create(novoVeiculo)
             return res.status(200).json(novoVeiculoCria)
         } catch (error) {
             return res.status(500).json(error.message)
@@ -39,10 +39,10 @@ class VeiculoController {
         const {id} = req.params
         const novasInfos = req.body
         try {
-            await database.Veiculo.update(novasInfos, {
+            await database.Veiculos.update(novasInfos, {
                 where:{id:Number(id)}
             })
-            const veiculoAtualizada = await database.Veiculo.findOne({
+            const veiculoAtualizada = await database.Veiculos.findOne({
                 where:{id:Number(id)}
             })
             return res.status(200).json(veiculoAtualizada)
@@ -55,7 +55,7 @@ class VeiculoController {
         const {id} = req.params
 
         try {
-            await database.Veiculo.destroy({
+            await database.Veiculos.destroy({
                 where:{id:Number(id)}
             })
             return res.status(200).json({mensagem:`O registro ${id}, foi deletado!`})

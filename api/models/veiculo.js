@@ -3,20 +3,21 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Veiculo extends Model {
+  class Veiculos extends Model {
     
     static associate(models) {
-      
-      Veiculo.belongsTo(models.Vaga,{
+      /*
+      Veiculos.belongsTo(models.Vagas,{
         foreignKey: 'vagaVeiculo_id'
       })
 
-      Veiculo.belongsTo(models.Pessoas, {
+      Veiculos.belongsTo(models.Pessoas, {
         foreignKey: 'donoVeiculo_id'
       })
+      */
     }
   }
-  Veiculo.init({
+  Veiculos.init({
     placa: DataTypes.STRING,
     tipo: DataTypes.STRING,
     cor: DataTypes.STRING,
@@ -25,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     
   }, {
     sequelize,
-    modelName: 'Veiculo',
+    modelName: 'Veiculos',
   });
-  return Veiculo;
+  return Veiculos;
 };

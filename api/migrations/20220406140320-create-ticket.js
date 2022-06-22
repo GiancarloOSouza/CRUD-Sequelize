@@ -14,11 +14,13 @@ module.exports = {
       data: {
         type: Sequelize.DATE
       },
+      /*
       vagaTicket_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model:'Vaga', key:'id'}
+        references: {model:'Vagas', key:'id'}
       },
+      */
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -23,11 +23,11 @@ module.exports = {
       fabricante: {
         type: Sequelize.STRING
       },
-      
+      /*
       vagaVeiculo_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model:'Vaga', key:'id'}
+        references: {model:'Vagas', key:'id'}
       },
     
       donoVeiculo_id: {
@@ -35,6 +35,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {model:'Pessoas', key:'id'}
       },
+      */
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
